@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Web Speech API</title>
+   </head> 
+<body>
+ 
+<form name="js" method="POST" action="connectivity.php">
+
+
+
+
+<textarea id="text" cols="45" rows="3">Hello world</textarea>
+
+<select id="voiceselection"></select> 
+
+<input 
+  onclick="responsiveVoice.speak($('#text').val(),$('#voiceselection').val());" 
+  type="button" 
+  value="Play" 
+/>
+
+<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+function sbmt(){
+var str= document.getElementById("content").innerText;
+document.js.name.value+=str;
+document.js.submit(); 
+}
+
+//otuput method
+    //Populate voice selection dropdown
+        var voicelist = responsiveVoice.getVoices();
+        var vselect = $("#voiceselection");
+        $.each(voicelist, function() {
+                vselect.append($("<option />").val(this.name).text(this.name));
+        });
+
+</script>
+
+</body>
+</html>
